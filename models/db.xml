@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	
+	<!--
+	Name the tables very explicitly, all with the same prefix (package name as prefix makes sense),
+	otherwise it is confusing when someone looks at the database and expects to only see C5 tables.
+	-->
+	
+	<table name="evento">
+		<field name="id" type="I"><UNSIGNED/><KEY/><AUTOINCREMENT/></field>
+		<field name="miniatura" type="I"><UNSIGNED/></field>
+		<field name="titulo" type="C" size="255"><NOTNULL/></field>
+		<field name="antetitulo" type="C" size="255"><NOTNULL/></field>
+		<field name="descripcion" type="C" size="255"><NOTNULL/></field>
+		<field name="fecha_inicio" type="T"><NOTNULL/><DEFTIMESTAMP/></field>
+		<field name="fecha_fin" type="T"><NOTNULL/><DEFTIMESTAMP/></field>
+		<field name="fecha_publicacion" type="T"><NOTNULL/><DEFTIMESTAMP/></field>
+		<field name="fecha_fin_publicacion" type="T"><NOTNULL/><DEFTIMESTAMP/></field>
+	</table>
+
+	<table name="evento_enlace">
+		<field name="id" type="I"><UNSIGNED/><KEY/><AUTOINCREMENT/></field>
+		<field name="id_evento" type="I"><UNSIGNED/><NOTNULL/></field>
+		<field name="titulo" type="C" size="255"><UNSIGNED/><NOTNULL/></field>
+		<field name="enlace" type="C" size="255"><UNSIGNED/><NOTNULL/></field>
+		<field name="orden" type="I"><UNSIGNED/><NOTNULL/></field>
+	</table>
+	
+	<table name="evento_adjunto">
+		<field name="id" type="I"><UNSIGNED/><KEY/><AUTOINCREMENT/></field>
+		<field name="id_evento" type="I"><UNSIGNED/><NOTNULL/></field>
+		<field name="titulo_adjunto" type="C" size="255"><UNSIGNED/><NOTNULL/></field>
+		<field name="adjunto" type="C" size="255"><UNSIGNED/><NOTNULL/></field>
+		<field name="orden" type="I"><UNSIGNED/><NOTNULL/></field>
+	</table>
+
+	<table name="evento_geolocalizacion">
+		<field name="id" type="I"><UNSIGNED/><KEY/><AUTOINCREMENT/></field>
+		<field name="id_evento" type="I"><UNSIGNED/><NOTNULL/></field>
+		<field name="titulo" type="C" size="255"><UNSIGNED/><NOTNULL/></field>
+		<field name="descripcion" type="C" size="255"><UNSIGNED/><NOTNULL/></field>
+		<field name="direccion" type="C" size="255"><UNSIGNED/><NOTNULL/></field>
+		<field name="latitud" type="N"><UNSIGNED/></field>
+		<field name="longitud" type="N"><UNSIGNED/></field>
+		<field name="zoom" type="I"><UNSIGNED/></field>
+		<field name="orden" type="I"><UNSIGNED/><NOTNULL/></field>
+	</table>	
+		
+</schema>
+
+<!-- SEE http://phplens.com/lens/adodb/docs-datadict.htm FOR XML SCHEMA DOCS -->

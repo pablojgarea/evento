@@ -1,0 +1,40 @@
+.item.ccm-pane-body{
+	padding: 10px 10px 0 10px;
+	margin-bottom:10px;
+}
+
+.ccm-ui .form-horizontal .control-label{
+	font-weight: bold;
+}
+
+.listado-adjuntos .adjunto-subasta .input {
+	margin-left: 152px;
+}
+
+.listado-adjuntos .enlace-subasta input, .listado-adjuntos .adjunto-subasta input{
+	margin-left: 10px;
+}
+
+.borrar-enlace, .borrar-adjunto {
+	float: right;
+}
+
+div#ccm-dashboard-content .subasta{
+	margin-top: 0px;
+}
+
+.custom-combobox {
+  position: relative;
+  display: inline-block;
+}
+.custom-combobox-toggle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin-left: -1px;
+  padding: 0;
+}
+.custom-combobox-input {
+  margin: 0;
+  padding: 5px 10px;
+}
