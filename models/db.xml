@@ -12,6 +12,7 @@
 		<field name="titulo" type="C" size="255"><NOTNULL/></field>
 		<field name="antetitulo" type="C" size="255"><NOTNULL/></field>
 		<field name="descripcion" type="C" size="255"><NOTNULL/></field>
+		<field name="enlace" type="C" size="255"><NOTNULL/></field>
 		<field name="fecha_inicio" type="T"><NOTNULL/><DEFTIMESTAMP/></field>
 		<field name="fecha_fin" type="T"><NOTNULL/><DEFTIMESTAMP/></field>
 		<field name="fecha_publicacion" type="T"><NOTNULL/><DEFTIMESTAMP/></field>

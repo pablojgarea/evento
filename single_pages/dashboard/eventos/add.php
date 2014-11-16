@@ -38,6 +38,10 @@ $dtt = Loader::helper('form/date_time');
 		<div class="input "><?php echo $form->textarea('descripcion',$evento['descripcion'])?></div>
 	</div>
 	<div class="clearfix form-group">
+		<?php echo $form->label('enlace', t('Enlace')); ?>
+		<div class="input "><?php echo $form->text('enlace',$evento['enlace']) ?></div>
+	</div>
+	<div class="clearfix form-group">
 		<div class="input ui-widget">
 			<?php echo $form->label('municipio', t('Municipio')); ?>		
 			<select id="combobox" name="municipio">

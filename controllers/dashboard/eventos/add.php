@@ -33,6 +33,8 @@ class DashboardEventosAddController extends Controller{
 
 		$evento->descripcion = $this->post('descripcion');
 
+		$evento->enlace = $this->post('enlace');
+
 		$evento->fecha_inicio = $dtt->translate('fecha_inicio');
 
 		$evento->fecha_fin = $dtt->translate('fecha_fin');

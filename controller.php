@@ -18,7 +18,6 @@ class EventoPackage extends Package {
           $html = Loader::helper("html");
           $v = View::getInstance();
           $v->addHeaderItem($html->css("evento.css", "evento"));
-//          $v->addHeaderItem($html->javascript("boilerplate.js", "c5_boilerplate"));
      }
 
      public function install() {

@@ -3,19 +3,20 @@ class Evento extends Model{
 
 	public $_table='evento';
 
-	public function createEvento($miniatura, $tipo_bienes,$localizacion,$estado,$fecha,$datos_evento){
+	public function createEvento($miniatura, $titulo, $antetitulo, $descripcion, $enlace, $localizacion,$estado,$fecha_inicio, $fecha_fin, $fecha_publicacion, $fecha_fin_publicacion){
 
 		$db = Loader::db();
 		$this->miniatura = $miniatura;
 		$this->titulo = $titulo;
 		$this->antetitulo = $antetitulo;
 		$this->descripcion = $descripcion;
+		$this->enlace = $enlace;
 		$this->fecha_inicio = $fecha_inicio;
 		$this->fecha_fin = $fecha_fin;
 		$this->fecha_publicacion = $fecha_publicacion;
 		$this->fecha_fin_publicacion = $fecha_fin_publicacion;
-		$query = 'INSERT INTO evento (miniatura, titulo, antetitulo, descripcion, fecha_inicio, fecha_fin, fecha_publicacion, fecha_fin_publicacion) VALUES (?,?,?,?,?,?,?,?)';
-		$values = array($miniatura,$titulo,$antetitulo,$descripcion,$fecha_inicio,$fecha_fin,$fecha_publicacion,$fecha_fin_publicacion);
+		$query = 'INSERT INTO evento (miniatura, titulo, antetitulo, descripcion, enlace,fecha_inicio, fecha_fin, fecha_publicacion, fecha_fin_publicacion) VALUES (?,?,?,?,?,?,?,?)';
+		$values = array($miniatura,$titulo,$antetitulo,$descripcion,$enlace,$fecha_inicio,$fecha_fin,$fecha_publicacion,$fecha_fin_publicacion);
 		$db->execute($query,$values);
 		$this->id = mysql_insert_id();
 
@@ -35,6 +36,7 @@ class Evento extends Model{
 		$this->titulo = $evento['titulo'];
 		$this->antetitulo = $evento['antetitulo'];
 		$this->descripcion = $evento['descripcion'];
+		$this->enlace = $evento['enlace'];
 		$this->fecha_inicio = $evento['fecha_inicio'];
 		$this->fecha_fin = $evento['fecha_fin'];
 		$this->fecha_publicacion = $evento['fecha_publicacion'];
@@ -46,6 +48,19 @@ class Evento extends Model{
 
 		$db = Loader::db();
 		$sql_where = '';
+
+		if(!empty($parametros['texto'])){
+			$parametros['titulo'] = $parametros['texto'];
+			$parametros['descripcion'] = $parametros['texto'];
+			$parametros['antetitulo'] = $parametros['texto'];
+		}
+
+		if(!empty($parametros['numero_noticias'])){
+			$numero_noticias = $parametros['numero_noticias'];
+			unset($parametros['numero_noticias']);
+		}
+		unset($parametros['fecha_inicio']);
+		unset($parametros['fecha_fin']);
 
 		foreach ($parametros as $key => $value) {
 			$sql_where .= "(".$key." LIKE '%".$value."%') AND ";

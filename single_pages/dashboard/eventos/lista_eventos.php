@@ -14,6 +14,7 @@
 			<th>T&iacute;tulo</th>
 			<th>Antet&iacute;tulo</th>
 			<th>Descripc&iacute;on</th>
+			<th>Enlace</th>
 			<th>Fecha Inicio</th>
 			<th>Fecha Fin</th>
 			<th>Fecha Publicaci&oacute;n</th>
@@ -32,6 +33,7 @@
 			<td><?php echo $evento->titulo ?></td>
 			<td><?php echo $evento->antetitulo ?></td>
 			<td><?php echo $evento->descripcion ?></td>
+			<td><?php echo $evento->enlace ?></td>
 			<td><?php echo date($evento->fecha_inicio) ?></td>
 			<td><?php echo date($evento->fecha_fin) ?></td>
 			<td><?php echo date($evento->fecha_publicacion) ?></td>
