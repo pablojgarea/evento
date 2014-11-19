@@ -29,6 +29,7 @@ $( document ).ready(function() {
 
 	    $(".listado-adjuntos").sortable({
 	    	items:".item",
+        handle:".handle",
 	    	update: function(event, ui) {
 	    	 $(this).find("input[id^='orden']").each(function(i){
 	    	 	$(this).attr("value",i);
@@ -130,7 +131,7 @@ $( document ).ready(function() {
 			</fieldset>\
 		</div>';
 
-		$(".listado-adjuntos").before(div_geolocalizacion);
+		$(".listado-adjuntos").prepend(div_geolocalizacion);
 		
 		$(this).closest('.listado-adjuntos').on('click', '.borrar-geolocalizacion', function(event) {
 			event.preventDefault();

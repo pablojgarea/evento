@@ -152,17 +152,17 @@ $dtt = Loader::helper('form/date_time');
 		</div>
 	    <div class="clearfix col-md-6 col-lg-6">
 			<?php echo $form->label('fecha_fin', t('Fecha Fin')); ?>
-			<?php echo $dtt->datetime('fecha_fin', date($evento['fecha_fin']), false,true); $dtt->translate('fecha_fin');?>
+			<?php echo $dtt->datetime('fecha_fin', date($evento['fecha_fin']), true,true); $dtt->translate('fecha_fin');?>
 			
 		</div>
 	    <div class="clearfix col-md-6 col-lg-6">
 			<?php echo $form->label('fecha_publicacion', t('Fecha publicación')); ?>
-			<?php echo $dtt->datetime('fecha_publicacion', date($evento['fecha_publicacion']), false,true); $dtt->translate('fecha_publicacion');?>
+			<?php echo $dtt->datetime('fecha_publicacion', date($evento['fecha_publicacion']), true,true); $dtt->translate('fecha_publicacion');?>
 			
 		</div>
 	    <div class="clearfix col-md-6 col-lg-6">
 			<?php echo $form->label('fecha_fin_publicacion', t('Fecha fin publicación')); ?>
-			<?php echo $dtt->datetime('fecha_fin_publicacion', date($evento['fecha_fin_publicacion']), false,true); $dtt->translate('fecha_fin_publicacion');?>
+			<?php echo $dtt->datetime('fecha_fin_publicacion', date($evento['fecha_fin_publicacion']), true,true); $dtt->translate('fecha_fin_publicacion');?>
 			
 		</div>
 	</div>
