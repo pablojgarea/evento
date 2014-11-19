@@ -130,7 +130,7 @@ $( document ).ready(function() {
 			</fieldset>\
 		</div>';
 
-		$(".listado-adjuntos").append(div_geolocalizacion);
+		$(".listado-adjuntos").before(div_geolocalizacion);
 		
 		$(this).closest('.listado-adjuntos').on('click', '.borrar-geolocalizacion', function(event) {
 			event.preventDefault();

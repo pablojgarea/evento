@@ -137,7 +137,16 @@ class DashboardEventosAddController extends Controller{
 		$this->addHeaderItem($html->javascript('jquery-gmaps-latlon-picker.js','evento'));
 		$this->addHeaderItem($html->javascript('formulario.js','evento'));
 	}
+	public function add(){
+		$html = Loader::helper('html');
 
+//		$this->addHeaderItem($html->javascript('maps-api.js?sensor=false','evento'));
+//		$this->addHeaderItem($html->javascript('jquery-2.1.1.min.js','evento'));
+		$this->addHeaderItem('<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>');
+		$this->addHeaderItem($html->css('jquery-gmaps-latlon-picker.css','evento'));
+		$this->addHeaderItem($html->javascript('jquery-gmaps-latlon-picker.js','evento'));
+		$this->addHeaderItem($html->javascript('formulario.js','evento'));
+	}
 
 }
 
