@@ -38,110 +38,109 @@ $dtt = Loader::helper('form/date_time');
 		<div class="input "><?php echo $form->textarea('descripcion',$evento['descripcion'])?></div>
 	</div>
 	<div class="clearfix form-group">
-		<?php echo $form->label('enlace', t('Enlace')); ?>
-		<div class="input "><?php echo $form->text('enlace',$evento['enlace']) ?></div>
+		<?php echo $form->label('enlace', t('Enlace')); ?>	
+		<div class="input "><?php echo $form->text('enlace',$evento['enlace']) ?></div>		
 	</div>
-	<div class="clearfix form-group">
-		<?php echo $form->label('municipio', t('Municipio')); ?>	
-		<div class="input ui-widget">	
-			<select id="combobox" name="municipio">
-				<option value=""></option>
-				<option value="abegondo">Abegondo</option>
-				<option value="concellodeames">Ames</option>
-				<option value="aranga">Aranga</option>
-				<option value="ares">Ares</option>
-				<option value="arteixo">Arteixo</option>
-				<option value="arzua">Arzúa</option>
-				<option value="abana">A Baña</option>
-				<option value="bergondo">Bergondo</option>
-				<option value="betanzos">Betanzos</option>
-				<option value="boimorto">Boimorto</option>
-				<option value="boiro">Boiro</option>
-				<option value="boqueixon">Boqueixón</option>
-				<option value="brion">Brión</option>
-				<option value="cabana">Cabana de Bergantiños</option>
-				<option value="cabanas">Cabanas</option>
-				<option value="camarinas">Camariñas</option>
-				<option value="cambre">Cambre</option>
-				<option value="acapela">A Capela</option>
-				<option value="carballo">Carballo</option>
-				<option value="carnota">Carnota</option>
-				<option value="carral">Carral</option>
-				<option value="cedeira">Cedeira</option>
-				<option value="cee">Cee</option>
-				<option value="cerceda">Cerceda</option>
-				<option value="cerdido">Cerdido</option>
-				<option value="coiros">Coirós</option>
-				<option value="corcubion">Corcubión</option>
-				<option value="coristanco">Coristanco</option>
-				<option value="acoruna">A Coruña</option>
-				<option value="culleredo">Culleredo</option>
-				<option value="curtis">Curtis</option>
-				<option value="concellodedodro">Dodro</option>
-				<option value="dumbria">Dumbría</option>
-				<option value="fene">Fene</option>
-				<option value="ferrol">Ferrol</option>
-				<option value="fisterra">Fisterra</option>
-				<option value="frades">Frades</option>
-				<option value="irixoa">Irixoa</option>
-				<option value="laxe">Laxe</option>
-				<option value="alaracha">Laracha</option>
-				<option value="lousame">Lousame</option>
-				<option value="malpicadebergantinos">Malpica de Bergantiños</option>
-				<option value="manon">Mañón</option>
-				<option value="mazaricos">Mazaricos</option>
-				<option value="melide">Melide</option>
-				<option value="mesia">Mesía</option>
-				<option value="mino">Miño</option>
-				<option value="moeche">Moeche</option>
-				<option value="monfero">Monfero</option>
-				<option value="mugardos">Mugardos</option>
-				<option value="muxia">Muxía</option>
-				<option value="muros">Muros</option>
-				<option value="naron">Narón</option>
-				<option value="neda">Neda</option>
-				<option value="concellodenegreira">Negreira</option>
-				<option value="noia">Noia</option>
-				<option value="oleiros">Oleiros</option>
-				<option value="ordes">Ordes</option>
-				<option value="oroso">Oroso</option>
-				<option value="ortigueira">Ortigueira</option>
-				<option value="outes">Outes</option>
-				<option value="concellodeozacesuras">Oza-Cesuras</option>
-				<option value="paderne">Paderne</option>
-				<option value="padron">Padrón</option>
-				<option value="opino">O Pino</option>
-				<option value="apobra">A Pobra do Caramiñal</option>
-				<option value="ponteceso">Ponteceso</option>
-				<option value="pontedeume">Pontedeume</option>
-				<option value="aspontes">As Pontes de García Rodríguez</option>
-				<option value="portodoson">Porto do Son</option>
-				<option value="rianxo">Rianxo</option>
-				<option value="ribeira">Ribeira</option>
-				<option value="rois">Rois</option>
-				<option value="sada">Sada</option>
-				<option value="sansadurnino">San Sadurniño</option>
-				<option value="santacomba">Santa Comba</option>
-				<option value="santiago">Santiago de Compostela</option>
-				<option value="santiso">Santiso</option>
-				<option value="sobrado">Sobrado dos Monxes</option>
-				<option value="assomozas">As Somozas</option>
-				<option value="teo">Teo</option>
-				<option value="toques">Toques</option>
-				<option value="tordoia">Tordoia</option>
-				<option value="touro">Touro</option>
-				<option value="trazo">Trazo</option>
-				<option value="valdovino">Valdoviño</option>
-				<option value="valdodubra">Val do Dubra</option>
-				<option value="vedra">Vedra</option>
-				<option value="vilasantar">Vilasantar</option>
-				<option value="vilarmaior">Vilarmaior</option>
-				<option value="vimianzo">Vimianzo</option>
-				<option value="concellodezas">Zas</option>
-				<option value="concellodecarino.com">Cariño</option>
-				<option value="consorcioam">Consorcio As Mariñas</option>
-			</select>
-		</div>
+	<div class="clearfix form-group municipio-selector">
+		<?php echo $form->label('municipio', t('Municipio'));	
+			print $form->select('municipio', array(
+				"abegondo" => 'Abegondo',
+				"concellodeames" => 'Ames',
+				"aranga" => 'Aranga',
+				"ares" => 'Ares',
+				"arteixo" => 'Arteixo',
+				"arzua" => 'Arzúa',
+				"abana" => 'A Baña',
+				"bergondo" => 'Bergondo',
+				"betanzos" => 'Betanzos',
+				"boimorto" => 'Boimorto',
+				"boiro" => 'Boiro',
+				"boqueixon" => 'Boqueixón',
+				"brion" => 'Brión',
+				"cabana" => 'Cabana de Bergantiños',
+				"cabanas" => 'Cabanas',
+				"camarinas" => 'Camariñas',
+				"cambre" => 'Cambre',
+				"acapela" => 'A Capela',
+				"carballo" => 'Carballo',
+				"carnota" => 'Carnota',
+				"carral" => 'Carral',
+				"cedeira" => 'Cedeira',
+				"cee" => 'Cee',
+				"cerceda" => 'Cerceda',
+				"cerdido" => 'Cerdido',
+				"coiros" => 'Coirós',
+				"corcubion" => 'Corcubión',
+				"coristanco" => 'Coristanco',
+				"acoruna" => 'A Coruña',
+				"culleredo" => 'Culleredo',
+				"curtis" => 'Curtis',
+				"concellodedodro" => 'Dodro',
+				"dumbria" => 'Dumbría',
+				"fene" => 'Fene',
+				"ferrol" => 'Ferrol',
+				"fisterra" => 'Fisterra',
+				"frades" => 'Frades',
+				"irixoa" => 'Irixoa',
+				"laxe" => 'Laxe',
+				"alaracha" => 'Laracha',
+				"lousame" => 'Lousame',
+				"malpicadebergantinos" => 'Malpica de Bergantiños',
+				"manon" => 'Mañón',
+				"mazaricos" => 'Mazaricos',
+				"melide" => 'Melide',
+				"mesia" => 'Mesía',
+				"mino" => 'Miño',
+				"moeche" => 'Moeche',
+				"monfero" => 'Monfero',
+				"mugardos" => 'Mugardos',
+				"muxia" => 'Muxía',
+				"muros" => 'Muros',
+				"naron" => 'Narón',
+				"neda" => 'Neda',
+				"concellodenegreira" => 'Negreira',
+				"noia" => 'Noia',
+				"oleiros" => 'Oleiros',
+				"ordes" => 'Ordes',
+				"oroso" => 'Oroso',
+				"ortigueira" => 'Ortigueira',
+				"outes" => 'Outes',
+				"concellodeozacesuras" => 'Oza-Cesuras',
+				"paderne" => 'Paderne',
+				"padron" => 'Padrón',
+				"opino" => 'O Pino',
+				"apobra" => 'A Pobra do Caramiñal',
+				"ponteceso" => 'Ponteceso',
+				"pontedeume" => 'Pontedeume',
+				"aspontes" => 'As Pontes de García Rodríguez',
+				"portodoson" => 'Porto do Son',
+				"rianxo" => 'Rianxo',
+				"ribeira" => 'Ribeira',
+				"rois" => 'Rois',
+				"sada" => 'Sada',
+				"sansadurnino" => 'San Sadurniño',
+				"santacomba" => 'Santa Comba',
+				"santiago" => 'Santiago de Compostela',
+				"santiso" => 'Santiso',
+				"sobrado" => 'Sobrado dos Monxes',
+				"assomozas" => 'As Somozas',
+				"teo" => 'Teo',
+				"toques" => 'Toques',
+				"tordoia" => 'Tordoia',
+				"touro" => 'Touro',
+				"trazo" => 'Trazo',
+				"valdovino" => 'Valdoviño',
+				"valdodubra" => 'Val do Dubra',
+				"vedra" => 'Vedra',
+				"vilasantar" => 'Vilasantar',
+				"vilarmaior" => 'Vilarmaior',
+				"vimianzo" => 'Vimianzo',
+				"concellodezas" => 'Zas',
+				"concellodecarino.com" => 'Cariño',
+				"consorcioam" => 'Consorcio As Mariñas'),$evento['municipio']
+);
+?>
+
 	</div>
 	
    	<div class="fechas-evento ccm-pane ccm-pane-body form-group">
@@ -317,6 +316,12 @@ $( document ).ready(function() {
 		});		
 		ordenacion();
 	});
+
+    $("#municipio").select2({
+        width: 600,
+        dropdownCssClass: "municipio-selector"
+    });
+//    $(".municipio-selector .custom-combobox").css({"position: absolute,right: -1000px"});
 
 
 

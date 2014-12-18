@@ -1,5 +1,19 @@
 <?php defined('C5_EXECUTE') or die("Access Denied.");
 class DashboardEventosAddController extends Controller{
+	public function delete($id){
+
+		Loader::model('evento','evento');
+
+		$evento = new Evento();
+
+		$evento->load('id=?',$id);
+
+		$evento->delete();
+
+		//falta borrar adjuntos y enlaces
+		
+		$this->redirect('/dashboard/eventos/lista_eventos');
+	}
 
 	public function save(){
 		Loader::model('evento','evento');
@@ -34,6 +48,8 @@ class DashboardEventosAddController extends Controller{
 		$evento->descripcion = $this->post('descripcion');
 
 		$evento->enlace = $this->post('enlace');
+
+		$evento->municipio = $this->post('municipio');
 
 		$evento->fecha_inicio = $dtt->translate('fecha_inicio');
 
@@ -132,7 +148,11 @@ class DashboardEventosAddController extends Controller{
 
 //		$this->addHeaderItem($html->javascript('maps-api.js?sensor=false','evento'));
 //		$this->addHeaderItem($html->javascript('jquery-2.1.1.min.js','evento'));
+
+
 		$this->addHeaderItem('<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>');
+		$this->addHeaderItem($html->javascript('select2.js','evento'));
+		$this->addHeaderItem($html->css('select2.css','evento'));
 		$this->addHeaderItem($html->css('jquery-gmaps-latlon-picker.css','evento'));
 		$this->addHeaderItem($html->javascript('jquery-gmaps-latlon-picker.js','evento'));
 		$this->addHeaderItem($html->javascript('formulario.js','evento'));
@@ -142,6 +162,9 @@ class DashboardEventosAddController extends Controller{
 
 //		$this->addHeaderItem($html->javascript('maps-api.js?sensor=false','evento'));
 //		$this->addHeaderItem($html->javascript('jquery-2.1.1.min.js','evento'));
+
+		$this->addHeaderItem($html->javascript('select2.js','evento'));
+		$this->addHeaderItem($html->css('select2.css','evento'));
 		$this->addHeaderItem('<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>');
 		$this->addHeaderItem($html->css('jquery-gmaps-latlon-picker.css','evento'));
 		$this->addHeaderItem($html->javascript('jquery-gmaps-latlon-picker.js','evento'));

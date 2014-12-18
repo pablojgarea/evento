@@ -3,9 +3,16 @@
 
 <div class="ccm-ui">
 	<?php
-	$dashboard = Loader::helper('concrete/dashboard');
-	echo $dashboard->getDashboardPaneHeader('Listado de eventos');
-	?>
+		$dashboard = Loader::helper('concrete/dashboard');
+		echo $dashboard->getDashboardPaneHeader('Listado de eventos');
+
+		Loader::library('item_list');
+		$il = new ItemList();
+		$il->setItemsPerPage(5); //10 items per page
+		$il->setItems($lista_eventos); // array with all items
+		$results = $il->getPage(); // the results
+		$pagination = $il->getPagination();
+		?>
 	<div class="ccm-pane-body">
 	<table class="table table-bordered">
 		<tr>
@@ -20,7 +27,7 @@
 			<th>Fecha Publicaci&oacute;n</th>
 			<th>Fecha Fin Publicaci&oacute;n</th>
 		</tr>
-		<?php foreach ($lista_eventos as $evento): ?>
+		<?php foreach ($results as $evento): ?>
 		<tr>
 			<td><?php echo $evento->id ?></td>
 			<td>                            <?php 
@@ -41,12 +48,15 @@
 
 			<td>
 				<a href="<?php echo $this->url('/dashboard/eventos/add/edit',$evento->id)?>" class="btn">Editar</a>
-				<a href="<?php echo $this->url('/dashboard/eventos/delete',$evento->id)?>" class="btn danger">Borrar</a>
+				<a href="<?php echo $this->url('/dashboard/eventos/add/delete',$evento->id)?>" class="btn danger">Borrar</a>
 			</td>
 		</tr>
 		<?php endforeach; ?>
 
 
-		</table>	
+		</table>
+		<div id="paginador" >	
+		<?php  echo $pagination->getPages() ?>
+		</div>
 		<a href="<?php echo $this->url('/dashboard/eventos/add')?>" class="btn btn-primary">Añadir</a>
 	</div>

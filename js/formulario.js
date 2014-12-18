@@ -145,12 +145,11 @@ $( document ).ready(function() {
 	});
 
 
-});
+
 
 	////////////////////////////////////////////////////desplegable aytos
 
-/*
-  (function( $ ) {
+
     $.widget( "custom.combobox", {
       _create: function() {
         this.wrapper = $( "<span>" )
@@ -170,6 +169,7 @@ $( document ).ready(function() {
           .appendTo( this.wrapper )
           .val( value )
           .attr( "title", "" )
+          .attr("name", "municipio")
           .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
           .autocomplete({
             delay: 0,
@@ -180,16 +180,16 @@ $( document ).ready(function() {
             tooltipClass: "ui-state-highlight"
           });
  
-        this._on( this.input, {
-          autocompleteselect: function( event, ui ) {
-            ui.item.option.selected = true;
-            this._trigger( "select", event, {
-              item: ui.item.option
-            });
-          },
+        // this._on( this.input, {
+        //   autocompleteselect: function( event, ui ) {
+        //     ui.item.option.selected = true;
+        //     this._trigger( "select", event, {
+        //       item: ui.item.option
+        //     });
+        //   },
  
-          autocompletechange: "_removeIfInvalid"
-        });
+        //   autocompletechange: "_removeIfInvalid"
+        // });
       },
  
       _createShowAllButton: function() {
@@ -278,12 +278,13 @@ $( document ).ready(function() {
         this.element.show();
       }
     });
-  })( jQuery );
+
  
-  $(function() {
-    $( "#combobox" ).combobox();
-    $( "#toggle" ).click(function() {
-      $( "#combobox" ).toggle();
+    $(function() {
+      $( "#municipio" ).combobox();
+      // $( "#toggle" ).click(function() {
+      //   $( "#combobox" ).toggle();
+      // });
     });
-  });
-*/
+
+});

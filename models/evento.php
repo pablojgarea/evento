@@ -3,7 +3,7 @@ class Evento extends Model{
 
 	public $_table='evento';
 
-	public function createEvento($miniatura, $titulo, $antetitulo, $descripcion, $enlace, $localizacion,$estado,$fecha_inicio, $fecha_fin, $fecha_publicacion, $fecha_fin_publicacion){
+	public function createEvento($miniatura, $titulo, $antetitulo, $descripcion, $enlace, $municipio, $localizacion,$estado,$fecha_inicio, $fecha_fin, $fecha_publicacion, $fecha_fin_publicacion){
 
 		$db = Loader::db();
 		$this->miniatura = $miniatura;
@@ -11,6 +11,7 @@ class Evento extends Model{
 		$this->antetitulo = $antetitulo;
 		$this->descripcion = $descripcion;
 		$this->enlace = $enlace;
+		$this->municipio = $municipio;
 		$this->fecha_inicio = $fecha_inicio;
 		$this->fecha_fin = $fecha_fin;
 		$this->fecha_publicacion = $fecha_publicacion;
@@ -37,6 +38,7 @@ class Evento extends Model{
 		$this->antetitulo = $evento['antetitulo'];
 		$this->descripcion = $evento['descripcion'];
 		$this->enlace = $evento['enlace'];
+		$this->municipio = $evento['municipio'];
 		$this->fecha_inicio = $evento['fecha_inicio'];
 		$this->fecha_fin = $evento['fecha_fin'];
 		$this->fecha_publicacion = $evento['fecha_publicacion'];
@@ -53,6 +55,8 @@ class Evento extends Model{
 			$parametros['titulo'] = $parametros['texto'];
 			$parametros['descripcion'] = $parametros['texto'];
 			$parametros['antetitulo'] = $parametros['texto'];
+			$parametros['municipio'] = $parametros['texto'];
+
 		}
 
 		if(!empty($parametros['numero_noticias'])){
